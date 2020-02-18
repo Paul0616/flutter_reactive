@@ -14,6 +14,7 @@ import 'package:flutter_reactive_programming/src/value_notifier/main.dart'
     as valueNotifier;
 import 'package:flutter_reactive_programming/src/scoped/main.dart' as scoped;
 import 'package:flutter_reactive_programming/src/redux/main.dart' as redux;
+import 'package:flutter_reactive_programming/src/bloc/main.dart' as bloc;
 
 void main() {
   testWidgets('vanilla', (WidgetTester tester) async {
@@ -47,6 +48,10 @@ void main() {
   });
   testWidgets('redux', (WidgetTester tester) async {
     final app = redux.MyApp();
+    await _performSmokeTest(tester, app);
+  });
+  testWidgets('bloc', (WidgetTester tester) async {
+    final app = bloc.MyApp();
     await _performSmokeTest(tester, app);
   });
 }
