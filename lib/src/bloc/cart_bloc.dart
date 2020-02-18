@@ -9,7 +9,7 @@ class CartBloc {
   final Cart _cart = Cart();
 
   final BehaviorSubject<List<CartItem>> _items =
-      BehaviorSubject<List<CartItem>>.seeded([]);
+      BehaviorSubject<List<CartItem>>.seeded(<CartItem>[]);
 
   final BehaviorSubject<int> _itemCount = BehaviorSubject<int>.seeded(0);
 
@@ -17,7 +17,9 @@ class CartBloc {
       StreamController<CartAddition>();
 
   CartBloc() {
+
     _cartAdditionalController.stream.listen((addition) {
+
       int currentCount = _cart.itemCount;
       _cart.add(addition.product, addition.count);
       _items.add(_cart.items);
