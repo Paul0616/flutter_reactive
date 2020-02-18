@@ -9,7 +9,7 @@ Catalog fetchCatalogSync() => Catalog._sample();
 
 class Catalog {
   static const List<Product> _sampleProducts = const <Product>[
-    const Product(42, "Sweater", const Color(0xFF536DFE)),
+    const Product(5, "Sweater", const Color(0xFF536DFE)),
     const Product(1024, "Socks", const Color(0xFFFFD500)),
     const Product(1337, "Shawl", const Color(0xFF1CE8B5)),
     const Product(123, "Jacket", const Color(0xFFFF6C00)),

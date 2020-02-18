@@ -6,10 +6,14 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
+import 'package:flutter_reactive_programming/common/models/cart.dart';
 import 'package:flutter_reactive_programming/common/widgets/cart_button.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_reactive_programming/src/vanilla/main.dart' as vanilla;
+import 'package:flutter_reactive_programming/src/value_notifier/main.dart'
+    as valueNotifier;
+import 'package:flutter_reactive_programming/src/scoped/main.dart' as scoped;
+import 'package:flutter_reactive_programming/src/redux/main.dart' as redux;
 
 void main() {
   testWidgets('vanilla', (WidgetTester tester) async {
@@ -30,9 +34,24 @@ void main() {
 //    expect(find.text('0'), findsNothing);
 //    expect(find.text('1'), findsOneWidget);
   });
+  testWidgets('value notifier', (WidgetTester tester) async {
+    final cartObservable = valueNotifier.CartObservable(Cart());
+    final app = valueNotifier.MyApp(
+      cartObservable: cartObservable,
+    );
+    await _performSmokeTest(tester, app);
+  });
+  testWidgets('scoped', (WidgetTester tester) async {
+    final app = scoped.MyApp();
+    await _performSmokeTest(tester, app);
+  });
+  testWidgets('redux', (WidgetTester tester) async {
+    final app = redux.MyApp();
+    await _performSmokeTest(tester, app);
+  });
 }
 
-Future _performSmokeTest(WidgetTester tester, Widget app) async{
+Future _performSmokeTest(WidgetTester tester, Widget app) async {
   await tester.pumpWidget(app);
 
   expect(find.text('0'), findsOneWidget);
