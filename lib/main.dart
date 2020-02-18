@@ -3,9 +3,10 @@ import 'src/value_notifier/main.dart' as value_notifier;
 import 'src/scoped/main.dart' as scoped;
 import 'src/redux/main.dart' as redux;
 import 'src/bloc/main.dart' as bloc;
+import 'src/bloc_complex/main.dart' as blocComplex;
 
 void main() {
-  final flavor = Architecture.bloc;
+  final flavor = Architecture.blocComplex;
   print('\n\n======== Running: $flavor ========\n\n');
 
   switch (flavor) {
@@ -24,6 +25,9 @@ void main() {
     case Architecture.bloc:
       bloc.main();
       break;
+    case Architecture.blocComplex:
+      blocComplex.main();
+      break;
   }
 }
 
@@ -33,4 +37,5 @@ enum Architecture {
   scoped,
   redux,
   bloc,
+  blocComplex,
 }
