@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_reactive_programming/common/models/catalog.dart';
+
 import 'package:flutter_reactive_programming/common/widgets/cart_button.dart';
 
-import 'package:flutter_reactive_programming/common/widgets/product_square.dart';
 import 'package:flutter_reactive_programming/common/widgets/theme.dart';
 import 'package:flutter_reactive_programming/src/bloc_complex/cart/bloc_cart_page.dart';
 
 import 'package:flutter_reactive_programming/src/bloc_complex/cart/cart_bloc.dart';
 import 'package:flutter_reactive_programming/src/bloc_complex/cart/cart_provider.dart';
 import 'package:flutter_reactive_programming/src/bloc_complex/catalog/catalog_bloc.dart';
-import 'package:flutter_reactive_programming/src/bloc_complex/catalog/catalog_slice.dart';
 import 'package:flutter_reactive_programming/src/bloc_complex/product_grid/product_grid.dart';
 import 'package:flutter_reactive_programming/src/bloc_complex/service/catalog.dart';
 

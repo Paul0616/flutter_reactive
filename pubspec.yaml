@@ -14,6 +14,7 @@ dependencies:
   scoped_model: ^1.0.1
   flutter_redux: ^0.6.0
   rxdart: ^0.23.1
+  #random_words: ^1.0.2
 
 dev_dependencies:
   flutter_test:

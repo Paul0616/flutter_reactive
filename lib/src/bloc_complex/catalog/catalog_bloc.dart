@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_reactive_programming/common/models/catalog.dart';
 import 'package:flutter_reactive_programming/src/bloc_complex/catalog/catalog_slice.dart';
 import 'package:flutter_reactive_programming/src/bloc_complex/service/catalog.dart';
 import 'package:flutter_reactive_programming/src/bloc_complex/service/catalog_page.dart';
@@ -62,7 +61,7 @@ class CatalogBloc {
 
     final int minPageIndex = _getPageStartFromIndex(minIndex);
     final int maxPageIndex = _getPageStartFromIndex(maxIndex);
-
+    print(indexes);
     for (int i = minPageIndex;
         i <= maxPageIndex;
         i += CatalogService.productPerPage) {
@@ -98,6 +97,7 @@ class CatalogBloc {
     final slice = CatalogSlice(pages, true);
 
     _sliceSubject.add(slice);
+    print(slice.toString());
   }
 }
 

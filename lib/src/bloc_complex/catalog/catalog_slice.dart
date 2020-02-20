@@ -23,12 +23,15 @@ class CatalogSlice {
   int get endIndex =>
       startIndex + _pages.map((page) => page.endIndex).fold(-1, max);
 
-  Product elementAt(int index){
-    for(final page in _pages){
-      if(index >= page.startIndex && index <= page.endIndex){
+  Product elementAt(int index) {
+    for (final page in _pages) {
+      if (index >= page.startIndex && index <= page.endIndex) {
         return page.products[index - page.startIndex];
       }
     }
     return null;
   }
+
+  @override
+  String toString() => 'Slice contain: ${_pages.map((e) => e.toString())}';
 }

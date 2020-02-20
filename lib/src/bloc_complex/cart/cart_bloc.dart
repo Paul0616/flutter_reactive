@@ -9,12 +9,12 @@ class CartBloc {
   final _cart = CartService();
 
   final BehaviorSubject<List<CartItem>> _items =
-  BehaviorSubject<List<CartItem>>.seeded(<CartItem>[]);
+      BehaviorSubject<List<CartItem>>.seeded(<CartItem>[]);
 
   final BehaviorSubject<int> _itemCount = BehaviorSubject<int>.seeded(0);
 
   final StreamController<CartAddition> _cartAdditionalController =
-  StreamController<CartAddition>();
+      StreamController<CartAddition>();
 
   CartBloc() {
     _cartAdditionalController.stream.listen((addition) {
@@ -25,7 +25,9 @@ class CartBloc {
   }
 
   Sink<CartAddition> get cartAddition => _cartAdditionalController.sink;
+
   ValueStream<int> get itemCount => _itemCount.distinct().shareValueSeeded(0);
+
   ValueStream<List<CartItem>> get items => _items.stream;
 
   void dispose() {

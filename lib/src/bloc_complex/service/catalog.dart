@@ -4,8 +4,9 @@ import 'dart:ui';
 
 import 'package:flutter_reactive_programming/common/models/product.dart';
 import 'package:flutter_reactive_programming/src/bloc_complex/service/catalog_page.dart';
+//import 'package:random_words/random_words.dart';
 
-class CatalogService{
+class CatalogService {
   static int productPerPage = 10;
 
   static int networkDelay = 500;
@@ -14,10 +15,11 @@ class CatalogService{
     await Future.delayed(Duration(milliseconds: networkDelay));
 
     final random = Random(offset);
-    final products = List.generate(productPerPage, (index){
+    final products = List.generate(productPerPage, (index) {
+      // final word = generateNoun().take(1).first;
       final id = random.nextInt(0xffff);
       final color = Color(0xFF000000 | random.nextInt(0xFFFFFF));
-      return Product(id, 'Product $id (#${offset+index})', color);
+      return Product(id, 'Product $id (#${offset + index})', color);
     });
     return CatalogPage(products, offset);
   }
